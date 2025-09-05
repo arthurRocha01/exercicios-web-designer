@@ -6,25 +6,25 @@
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.5px;
+}
 
-    overflow: hidden;
+body {
+    overflow-x: hidden;
 }
 
 .container {
-    height: 100vh;
-    
     display: flex;
     flex-direction: column;
 }
 
 .header {
-    height: 300px;
-    width: 100vw;
+    height: 200px;
 
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 
-    border: 1px solid;
+    border-bottom: 1px solid;
 }
 
 .title {
@@ -37,18 +37,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     flex: 1;
-}
 
-.main p {
-    height: 100px;
-    width: 80%;
+    height: 2000px;
 
-    font-size: 16px;
-    line-height: 25px;
-}
-
-.main p a {
-    text-decoration: underline;
+    margin-left: 200px;
 }
