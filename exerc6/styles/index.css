@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+@keyframes holo-shift{
+    0% { background-position: 0% 50% }
+
+    50% { background-position: 100% 50% }
+
+    100% { background-position: 0% 50% }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    text-decoration: none;
+    border: none;
+    
+    /* Configurações da Fonte */
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    overflow: hidden;
+    
+    background: linear-gradient(135deg,
+        #0a0a1a 0%,
+        #141432 40%,
+        #1a1a40 100%
+    );
+    color: #f0f0ff;
+}
+
+.container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 250px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(90deg,
+        #ff0099,
+        #00e5ff,
+        #ff0099
+    );
+    background-size: 300% 300%;
+    animation: holo-shift 8s ease infinite;
+
+    box-shadow: 0 0 12px #00e5ff;
+
+    border-bottom: 1px solid;
+}
+
+.navbar {
+    height: 100px;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header h1 {
+    font-size: 30px;
+    margin-left: 60px;
+}
+
+.navbar-itens-container {
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar-itens-container p {
+    width: 200px;
+    align-self: center;
+
+    font-size: 18px;
+
+    color: #ff0099;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-itens-container p:hover {
+    transform: scale(1.2);
+}
+
+.navbar-itens-container p a:hover {
+    color: #00fff7;
+}
+
+.main {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container button {
+    height: 200px;
+    width: 300px;
+
+    border-radius: 20px;
+    font-size: 25px;
+
+    background-color: #ff0099;
+    color: #f0f0ff;
+}
+
+.button-container button:hover {
+    box-shadow: 10px 7px 10px 7px #00e5ff;
+}
