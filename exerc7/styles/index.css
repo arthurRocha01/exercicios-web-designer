@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    border: none;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    width: 100%;
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.img {
+    height: auto;
+    display: block;
+}
+
+.img img {
+    max-height: 350px;
+
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+.form {
+    height: 80vh;
+    width: 55%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h1 {
+    width: 70%;
+    margin-top: 150px;
+    
+    text-align: left;
+    font-size: 50px;
+}
+
+.form form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.form input {
+    width: 600px;
+    height: 80px;
+    margin: 0 auto;
+    padding-left: 30px;
+
+    border: 1px solid;
+}
+
+.form input::placeholder {
+    color: #888;
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 1;
+
+    text-align: left;
+    padding-left: 30px;
+}
+
+.opcoes-login {
+    width: 200px;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.opcoes-login a {
+    font-size: 30px;
+    color: #555;
+}
+
+.footer {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 60px;
+    margin-right: 1000px;
+
+    gap: 10px;
+}
+
+.footer p {
+    font-size: 20px;
+}
