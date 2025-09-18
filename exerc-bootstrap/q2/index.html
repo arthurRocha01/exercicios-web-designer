@@ -1,35 +1,118 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
+    <div class="container-fluid min-vh-100 d-flex align-items-center">
+      <div class="row w-100 justify-content-center g-4">
+        <!-- Plano Básico -->
+        <div class="col-12 col-md-4 d-flex flex-column align-items-stretch">
+          <div class="card text-center w-100 mb-3">
+            <img
+              src="bronze.jpg"
+              class="card-img-top rounded-circle mx-auto mt-3"
+              alt="Plano Básico"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Plano Básico</h5>
+              <p class="card-text">Catálogo de filmes limitado.</p>
+              <div class="d-flex">
+                <button type="button" class="btn btn-outline-primary ms-auto">
+                  Assinar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card w-100">
+            <div class="card-header">Detalhes</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">15 R$</li>
+              <li class="list-group-item">12.949 filmes</li>
+              <li class="list-group-item">
+                Prime Video, Paramount e Universal
+              </li>
+            </ul>
+          </div>
+        </div>
 
-    <div class="container-fluid text-center w-100 min-vh-100">
-        <div class="row">
-            <div class="col border">
-            1 of 2
+        <!-- Plano Prata -->
+        <div class="col-12 col-md-4 d-flex flex-column align-items-stretch">
+          <div class="card text-center w-100 mb-3">
+            <img
+              src="prata.jpg"
+              class="card-img-top rounded-circle mx-auto mt-3"
+              alt="Plano Prata"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Plano Prata</h5>
+              <p class="card-text">Catálogo expansivo.</p>
+              <div class="d-flex">
+                <button type="button" class="btn btn-outline-primary ms-auto">
+                  Assinar
+                </button>
+              </div>
             </div>
-            <div class="col border">
-            2 of 2
-            </div>
+          </div>
+          <div class="card w-100">
+            <div class="card-header">Detalhes</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">25 R$</li>
+              <li class="list-group-item">2.039 filmes</li>
+              <li class="list-group-item">
+                HBO, Netflix, Prime Video e outros
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="row">
-            <div class="col border">
-            1 of 3
+
+        <!-- Plano Ouro -->
+        <div class="col-12 col-md-4 d-flex flex-column align-items-stretch">
+          <div class="card text-center w-100 mb-3">
+            <img
+              src="ouro.jpg"
+              class="card-img-top rounded-circle mx-auto mt-3"
+              alt="Plano Ouro"
+              style="width: 150px; height: 150px; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Plano Ouro</h5>
+              <p class="card-text">Catálogo ilimitado.</p>
+              <div class="d-flex">
+                <button type="button" class="btn btn-primary ms-auto">
+                  Assinar
+                </button>
+              </div>
             </div>
-            <div class="col border">
-            2 of 3
-            </div>
-            <div class="col border">
-            3 of 3
-            </div>
+          </div>
+          <div class="card w-100">
+            <div class="card-header">Detalhes</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">55 R$</li>
+              <li class="list-group-item">38.749+ filmes</li>
+              <li class="list-group-item">
+                Netflix, Disney, HBO, Google Play e outros
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
