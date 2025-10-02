@@ -9,29 +9,41 @@
     <script src='script.js' defer></script>
 </head>
 <body>
-    <div class="cont">
+    <div class="container">
         <header>
             <h1>Olá Mundo!</h1>
         </header>
 
         <!-- Exercício 1 -->
-        <p>isso é um exemplo de aplicação JS</p>
-        <input id="input" type="text" placeholder="Digite algo...">
+        <p>Isso é um exemplo de aplicação JS</p>
+        <input id="showMessage-input" type="text" placeholder="Digite algo...">
         <input type="button" value="Clique aqui" onclick="showMessage()">
-        <p class="message-field"></p>
+        <p id="showMessage-fieldDisplay"></p>
 
         <!-- Exercício 2 -->
          <h1>Some</h1>
-         <input type="number" id="number1">
-         <input type="number" id="number2">
-         <input type="button" id="somar" value="Somar" onclick="sum()">
-         <p id="result-field"></p>
+         <input type="number" id="sum-number1">
+         <input type="number" id="sum-number2">
+         <input type="button" value="Somar" onclick="sum()">
+         <p id="sum-fieldDisplay"></p>
 
          <!-- Exercício 3 -->
-          <h1 id="text-change-color">"Só sei que nada sei."</h1>
+          <h1 id="changeColor-text">"Só sei que nada sei."</h1>
           <input type="button" value="Vemelho" id="red" onclick="changeColor(this)">
           <input type="button" value="Verde" id="green" onclick="changeColor(this)">
           <input type="button" value="Azul" id="blue" onclick="changeColor(this)">
+
+          <!-- Exercício 4 -->
+           <h1>Lista Infinita</h1>
+           <input type="text" id="addList-input">
+           <input type="button" value="Adcionar" onclick="addList()">
+           <ul id="addList-fieldDisplay"></ul>
+
+           <!-- Exercício 5 -->
+            <h1>Par ou Impar?</h1>
+            <input type="number" id="parity-numbers-input">
+            <input type="button" id="parity-numbers-btn" value="Verifique" onclick="parityNumber()">
+            <p id="parity-numbers-field"></p>
     </div>
 </body>
 </html>
