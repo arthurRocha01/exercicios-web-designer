@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios com Repetição</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Exercícios de Repetição - HTML/CSS</h1>
+
+    <!-- 1 -->
+    <div class="card">
+      <h2>1. Tabuada completa</h2>
+      <div class="input-group">
+        <label for="tabuada">Digite um número:</label>
+        <input type="number" id="tabuada">
+      </div>
+      <button onclick="tabuada()">Mostrar Tabuada</button>
+      <div class="output" id="output-tabuada"></div>
+    </div>
+
+    <!-- 2 -->
+    <div class="card">
+      <h2>2. Soma de pares</h2>
+      <button onclick="somar()">Calcular Soma</button>
+      <div class="output" id="output-pares"></div>
+    </div>
+
+    <!-- 3 -->
+    <div class="card">
+      <h2>3. Números primos de 1 a 100</h2>
+      <button onclick="primos()">Mostrar Primos</button>
+      <div class="output" id="output-primos"></div>
+    </div>
+
+    <!-- 4 -->
+    <div class="card">
+      <h2>4. Sequência de Fibonacci (15 primeiros)</h2>
+      <button onclick="fibonacci()">Gerar Fibonacci</button>
+      <div class="output" id="output-fibonacci"></div>
+    </div>
+
+    <!-- 5 -->
+    <div class="card">
+      <h2>5. Contagem regressiva</h2>
+      <div class="input-group">
+        <label for="regressiva">Digite um número:</label>
+        <input type="number" id="regressiva">
+      </div>
+      <button onclick="regressiva()">Contar</button>
+      <div class="output" id="output-regressiva"></div>
+    </div>
+
+    <!-- 6 -->
+    <div class="card">
+      <h2>6. Múltiplos de 3 e 5 até 50</h2>
+      <button onclick="multiplos()">Mostrar Múltiplos</button>
+      <div class="output" id="output-multiplos"></div>
+    </div>
+
+    <!-- 7 -->
+    <div class="card">
+      <h2>7. Fatorial</h2>
+      <div class="input-group">
+        <label for="fatorial">Digite um número:</label>
+        <input type="number" id="fatorial">
+      </div>
+      <button onclick="fatorial()">Calcular Fatorial</button>
+      <div class="output" id="output-fatorial"></div>
+    </div>
+
+    <!-- 8 -->
+    <div class="card">
+      <h2>8. Inversão de texto</h2>
+      <div class="input-group">
+        <label for="inversao">Digite uma palavra:</label>
+        <input type="text" id="inversao">
+      </div>
+      <button>Inverter</button>
+      <div class="output" id="output-inversao"></div>
+    </div>
+
+    <!-- 9 -->
+    <div class="card">
+      <h2>9. Contagem de vogais</h2>
+      <div class="input-group">
+        <label for="vogais">Digite uma frase:</label>
+        <textarea id="vogais" rows="2"></textarea>
+      </div>
+      <button>Contar Vogais</button>
+      <div class="output" id="output-vogais"></div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card">
+      <h2>10. Soma de dígitos</h2>
+      <div class="input-group">
+        <label for="digitos">Digite um número inteiro:</label>
+        <input type="number" id="digitos">
+      </div>
+      <button>Somar Dígitos</button>
+      <div class="output" id="output-digitos"></div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card">
+      <h2>11. Adivinhe o número</h2>
+      <div class="input-group">
+        <label for="adivinhe">Tente adivinhar (1 a 20):</label>
+        <input type="number" id="adivinhe">
+      </div>
+      <button>Tentar</button>
+      <div class="output" id="output-adivinhe"></div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card">
+      <h2>12. Login com senha</h2>
+      <div class="input-group">
+        <label>Usuário:</label>
+        <input type="text">
+      </div>
+      <div class="input-group">
+        <label>Senha:</label>
+        <input type="password">
+      </div>
+      <button>Entrar</button>
+      <div class="output" id="output-login"></div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card">
+      <h2>13. Caixa registradora</h2>
+      <div class="input-group">
+        <label>Digite um valor:</label>
+        <input type="number" step="0.01">
+      </div>
+      <button>Adicionar</button>
+      <div class="output" id="output-caixa"></div>
+    </div>
+
+    <!-- 14 -->
+    <div class="card">
+      <h2>14. Número positivo</h2>
+      <div class="input-group">
+        <label>Digite um número:</label>
+        <input type="number">
+      </div>
+      <button>Enviar</button>
+      <div class="output" id="output-positivos"></div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card">
+      <h2>15. Cálculo de média</h2>
+      <div class="input-group">
+        <label>Digite uma nota (-1 para parar):</label>
+        <input type="number" step="0.1">
+      </div>
+      <button>Adicionar Nota</button>
+      <div class="output" id="output-media"></div>
+    </div>
+
+    <!-- 16 -->
+    <div class="card">
+      <h2>16. Sorteio de dados</h2>
+      <button>Lançar Dados</button>
+      <div class="output" id="output-dados"></div>
+    </div>
+
+    <!-- 17 -->
+    <div class="card">
+      <h2>17. Verificador de palíndromo</h2>
+      <div class="input-group">
+        <label>Digite uma palavra:</label>
+        <input type="text">
+      </div>
+      <button>Verificar</button>
+      <div class="output" id="output-palindromo"></div>
+    </div>
+
+    <!-- 18 -->
+    <div class="card">
+      <h2>18. Números ímpares até N</h2>
+      <div class="input-group">
+        <label for="impares">Digite um número:</label>
+        <input type="number" id="impares">
+      </div>
+      <button>Mostrar Ímpares</button>
+      <div class="output" id="output-impares"></div>
+    </div>
+
+    <!-- 19 -->
+    <div class="card">
+      <h2>19. Contador de tentativas (Senha Secreta)</h2>
+      <div class="input-group">
+        <label for="tentativas">Digite a senha:</label>
+        <input type="password" id="tentativas">
+      </div>
+      <button>Tentar</button>
+      <div class="output" id="output-tentativas"></div>
+    </div>
+
+    <!-- 20 -->
+    <div class="card">
+      <h2>20. Progressão Aritmética</h2>
+      <div class="input-group">
+        <label for="pa-inicio">Primeiro termo:</label>
+        <input type="number" id="pa-inicio">
+      </div>
+      <div class="input-group">
+        <label for="pa-razao">Razão:</label>
+        <input type="number" id="pa-razao">
+      </div>
+      <button>Gerar PA</button>
+      <div class="output" id="output-pa"></div>
+    </div>
+
+  </div>
+</body>
+</html>
