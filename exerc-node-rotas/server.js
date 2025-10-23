@@ -11,22 +11,38 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
+app.get('/sobre', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'sobre.html'));
+});
+
 app.get('/contato', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'contato.html'));
 })
 
 const cursos = [
-  { id: 1, area: "Tecnologia", titulo: "Node.js com Express", descricao: "Curso de back-end com foco em Node e Express.", nivel: "Intermediário" },
-  { id: 2, area: "Desenvolvimento Pessoal", titulo: "A Ciência do Bem-Estar", descricao: "Explora a psicologia da felicidade baseada na ciência.", nivel: "Iniciante" },
-  { id: 3, area: "Marketing", titulo: "Estratégia de SEO", descricao: "Técnicas para otimizar conteúdo para buscadores.", nivel: "Intermediário" },
+    { id: 1, area: "Tecnologia", titulo: "Node.js com Express", descricao: "Curso de back-end com foco em Node e Express.", nivel: "Intermediário" },
+    { id: 2, area: "Desenvolvimento Pessoal", titulo: "A Ciência do Bem-Estar", descricao: "Explora a psicologia da felicidade baseada na ciência.", nivel: "Iniciante" },
+    { id: 3, area: "Marketing", titulo: "Estratégia de SEO", descricao: "Técnicas para otimizar conteúdo para buscadores.", nivel: "Intermediário" },
 ];
 
-app.get('/cursos:id', (req, res) => {
-    const cursoId = parseInt(req.params.id);
-    const curso = curso.find(c => c.id === id);
+app.get('/cursos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'cursos.html'));
+});
 
-    if (curso) {
-        res.json(cursos);
+app.get('/cursos/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'detalhe.html'));
+});
+
+app.get('/api/cursos', (req, res) => {
+    res.json(cursos);
+});
+
+app.get('/api/cursos/:id', (req, res) => {
+    const cursoId = parseInt(req.params.id);
+    const cursoEncontrado = cursos.find(c => c.id === cursoId);
+    
+    if (cursoEncontrado) {
+        res.json(cursoEncontrado);
     } else {
         res.status(404).json({ error: 'Curso não encontrado' });
     }

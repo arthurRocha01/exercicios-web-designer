@@ -1,6 +1,6 @@
 const pathAtual = window.location.pathname;
 
-if (pathAtual === '/') {
+if (pathAtual === '/cursos') {
     renderizarListaCursos();
 } else if (pathAtual.startsWith('/cursos/')) {
     const partes = pathAtual.split('/');
@@ -13,7 +13,7 @@ async function renderizarListaCursos() {
     ul.innerHTML = '<li>Buscando dados...</li>';
     
     try {
-        const response = await fetch('/cursos');
+        const response = await fetch('/api/cursos');
         const cursos = await response.json();
 
         ul.innerHTML = '';
@@ -38,7 +38,7 @@ async function renderizarDetalhesCurso(id) {
     const divDetalhes = document.getElementById('detalhes-curso');
     
     try {
-        const response = await fetch(`/cursos/${id}`); 
+        const response = await fetch(`/api/cursos/${id}`); 
         const curso = await response.json();
 
         if (response.status === 404) {

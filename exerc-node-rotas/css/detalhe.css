@@ -79,10 +79,15 @@ footer {
     margin-bottom: 5px;
 }
 
-#lista-cursos li hr {
-    border: 0;
-    border-top: 1px solid #eee;
-    margin: 10px 0;
+#detalhes-curso h2 {
+    color: #007bff;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#detalhes-curso p {
+    margin-bottom: 10px;
 }
 
 #detalhes-curso p strong {
