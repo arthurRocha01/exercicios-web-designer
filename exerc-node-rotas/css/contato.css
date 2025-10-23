@@ -1,0 +1,128 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.cabecalho {
+    background-color: #ff9800;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.menu-navegacao ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu-navegacao ul li {
+    margin-left: 20px;
+}
+
+.menu-navegacao ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.menu-navegacao ul li a:hover,
+.menu-navegacao ul li a.ativo {
+    background-color: #f57c00;
+}
+
+.conteudo-principal {
+    padding: 40px;
+    max-width: 600px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.conteudo-principal h2 {
+    color: #ff9800;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed #ff9800;
+    padding-bottom: 10px;
+}
+
+.formulario-contato {
+    display: flex;
+    flex-direction: column;
+}
+
+.campo {
+    margin-bottom: 15px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.campo textarea {
+    resize: vertical;
+}
+
+.botao-enviar {
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.botao-enviar:hover {
+    background-color: #388e3c;
+}
+
+.informacoes-contato {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.informacoes-contato h3 {
+    color: #ff9800;
+}
+
+.rodape {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}

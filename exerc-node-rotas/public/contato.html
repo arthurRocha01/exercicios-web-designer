@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Escola Fictícia</title>
+    <link rel="stylesheet" href="../css/contato.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1 class="logo">Escola Fictícia</h1>
+        <nav class="menu-navegacao">
+            <ul>
+                <li><a href="home.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html" class="ativo">Contato</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="conteudo-principal">
+        <h2>📧 Fale Conosco</h2>
+        <p>Preencha o formulário abaixo ou utilize os contatos diretos para entrar em contato com nossa equipe.</p>
+
+        <form action="#" method="POST" class="formulario-contato">
+            <div class="campo">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            
+            <div class="campo">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="campo">
+                <label for="assunto">Assunto:</label>
+                <select id="assunto" name="assunto" required>
+                    <option value="">Selecione um assunto</option>
+                    <option value="matricula">Matrículas</option>
+                    <option value="financeiro">Financeiro</option>
+                    <option value="pedagogico">Assuntos Pedagógicos</option>
+                    <option value="geral">Informações Gerais</option>
+                </select>
+            </div>
+            
+            <div class="campo">
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+            </div>
+            
+            <button type="submit" class="botao-enviar">Enviar Mensagem</button>
+        </form>
+
+        <section class="informacoes-contato">
+            <h3>Contatos Diretos</h3>
+            <p><strong>Telefone:</strong> (99) 9999-9999</p>
+            <p><strong>Endereço:</strong> Rua Fictícia, 123, Bairro Educação - Cidade Exemplo</p>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p>&copy; 2025 Escola Fictícia. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
