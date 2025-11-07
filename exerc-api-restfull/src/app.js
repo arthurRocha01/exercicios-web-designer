@@ -1,5 +1,5 @@
-const express = require('express');
-const materialRoutes = require('./routes/material.routes');
+import express from 'express';
+import { materialRoutes } from './routes/materialRoutes.js';
 
 const app = express();
 

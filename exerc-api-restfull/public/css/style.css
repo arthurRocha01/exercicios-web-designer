@@ -1,131 +1,260 @@
-/* Reset básico */
+/* Reset e base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f5f7fa;
+    color: #333;
+    min-height: 100vh;
 }
 
-/* Estilos de layout */
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-header {
-    background-color: #6200ea;
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #03dac6;
-    border-radius: 4px;
-}
-
-nav a:hover {
-    background-color: #018786;
-}
-
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-input:focus, button:focus {
-    outline: none;
-    border-color: #6200ea;
-}
-
-button {
-    background-color: #6200ea;
-    color: white;
-    cursor: pointer;
-    border: none;
-}
-
-button:hover {
-    background-color: #3700b3;
-}
-
-/* Estilos específicos para cada página */
-.login-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
-
-.login-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-
-.dashboard-body {
-    padding: 20px;
-}
-
-#materialList ul {
-    list-style-type: none;
-}
-
-#materialList ul li {
-    background-color: white;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* ===================
+   CABEÇALHO
+=================== */
+.header {
+    background-color: #1f2937;
+    color: #fff;
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-#materialList ul li button {
-    background-color: #ff0000;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+.header h1 {
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
-#materialList ul li button:hover {
-    background-color: #b30000;
+.nav a {
+    margin-left: 1rem;
 }
 
-.form-body {
-    padding: 20px;
-    background-color: #fafafa;
+/* ===================
+   LOGIN (já perfeito)
+=================== */
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
-.input-group {
-    margin-bottom: 15px;
+.card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.form .input-group {
+    margin-bottom: 1.2rem;
 }
 
 .input-group label {
     display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #444;
 }
 
 .input-group input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 0.7rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #2563eb;
+    outline: none;
+}
+
+/* ===================
+   BOTÕES
+=================== */
+.btn {
+    display: inline-block;
+    text-align: center;
+    padding: 0.7rem 1.4rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.btn.primary {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #1e40af;
+}
+
+.btn.secondary {
+    background-color: #10b981;
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    background-color: #059669;
+}
+
+.btn.danger {
+    background-color: #ef4444;
+    color: #fff;
+}
+
+.btn.danger:hover {
+    background-color: #b91c1c;
+}
+
+/* ===================
+   DASHBOARD
+=================== */
+.dashboard-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.dashboard-content {
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2rem;
+}
+
+.materials-section h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.material-card {
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.material-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.material-card h3 {
+    color: #1f2937;
+    margin-bottom: 0.6rem;
+}
+
+.material-card p {
+    color: #4b5563;
+    margin-bottom: 0.3rem;
+}
+
+/* ===================
+   FORM CADASTRAR
+=================== */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 1rem;
+}
+
+.form {
+    width: 100%;
+    max-width: 480px;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .input-group {
+    flex: 1;
+}
+
+/* ===================
+   RESPONSIVIDADE
+=================== */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
 }

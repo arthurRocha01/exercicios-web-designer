@@ -1,6 +1,6 @@
-const materialService = require('../services/material.service');
+import * as materialService from '../services/materialServices.js'
 
-exports.listMaterials = async (req, res) => {
+export const listMaterials = async (req, res) => {
     try {
         const materiais = await materialService.getAllMaterials();
         return res.status(200).json(materiais);
@@ -10,7 +10,7 @@ exports.listMaterials = async (req, res) => {
     }
 };
 
-exports.registerMaterial = async (req, res) => {
+export const registerMaterial = async (req, res) => {
     const { nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status } = req.body;
 
     if (!nome || !unidade_medida || quantidade === undefined || preco_unitario === undefined || !status) {
@@ -26,7 +26,7 @@ exports.registerMaterial = async (req, res) => {
     }
 };
 
-exports.updateMaterial = async (req, res) => {
+export const updateMaterial = async (req, res) => {
     const { id } = req.params;
     const { nome, quantidade } = req.body;
 
@@ -48,7 +48,7 @@ exports.updateMaterial = async (req, res) => {
     }
 };
 
-exports.deleteMaterial = async (req, res) => {
+export const deleteMaterial = async (req, res) => {
     const { id } = req.params;
 
     try {

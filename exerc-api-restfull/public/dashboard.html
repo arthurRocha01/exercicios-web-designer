@@ -5,21 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/main.js" defer></script>
 </head>
 <body class="dashboard-body">
-    <header>
-        <h1>Dashboard de Materiais</h1>
-        <nav>
-            <a href="cadastrar.html" class="btn">Novo Material</a>
-            <a href="index.html" class="btn">Logout</a>
+    <header class="header">
+        <h1>Controle de Materiais</h1>
+        <nav class="nav">
+            <a href="cadastrar.html" class="btn primary">+ Novo Material</a>
+            <a href="index.html" class="btn danger">Logout</a>
         </nav>
     </header>
 
-    <section id="materialList">
-        <h2>Materiais Cadastrados</h2>
-        <ul></ul>
-    </section>
-
-    <script src="js/main.js"></script>
+    <main class="dashboard-content">
+        <section class="materials-section card">
+            <h2>Materiais Cadastrados</h2>
+            <div class="materials-grid">
+                <div class="material-card">
+                    <h3>Cimento CP-II</h3>
+                    <p><strong>Quantidade:</strong> 40</p>
+                    <p><strong>Preço Unitário:</strong> R$ 25,00</p>
+                    <button class="btn secondary">Editar</button>
+                </div>
+                <div class="material-card">
+                    <h3>Tijolo Baiano</h3>
+                    <p><strong>Quantidade:</strong> 1200</p>
+                    <p><strong>Preço Unitário:</strong> R$ 1,20</p>
+                    <button class="btn secondary">Editar</button>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

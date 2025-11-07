@@ -1,17 +1,17 @@
-const pool = require('../config/db');
+import { pool } from '../config/db.js';
 
-exports.getAllMaterials = async () => {
+export const getAllMaterials = async () => {
     const [results] = await pool.query('SELECT * FROM materiais');
     return results;
 };
 
-exports.getMaterialById = async (id) => {
+export const getMaterialById = async (id) => {
     const [rows] = await pool.query('SELECT * FROM materiais WHERE id_material = ?', [id]);
     if (rows.length === 0) return null;
     return rows[0];
 };
 
-exports.createMaterial = async ({ nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
+export const createMaterial = async ({ nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
     const [result] = await pool.query(
         `INSERT INTO materiais (nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status)
          VALUES (?, ?, ?, ?, ?, ?, ?)`,
@@ -20,18 +20,18 @@ exports.createMaterial = async ({ nome, descricao, unidade_medida, quantidade, p
     return { id_material: result.insertId, nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status };
 };
 
-exports.updateMaterial = async (id, { nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
+export const updateMaterial = async (id, { nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
     const [result] = await pool.query(
         `UPDATE materiais
-         SET nome = ?, descricao = ?, unidade_medida = ?, quantidade = ?, preco_unitario = ?, categoria = ?, status = ?
-         WHERE id_material = ?`,
+        SET nome = ?, descricao = ?, unidade_medida = ?, quantidade = ?, preco_unitario = ?, categoria = ?, status = ?
+        WHERE id_material = ?`,
         [nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status, id]
     );
     if (result.affectedRows === 0) return null;
     return { id_material: id, nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status };
 };
 
-exports.deleteMaterial = async (id) => {
+export const deleteMaterial = async (id) => {
     const [result] = await pool.query('DELETE FROM materiais WHERE id_material = ?', [id]);
     if (result.affectedRows === 0) return null;
     return true;

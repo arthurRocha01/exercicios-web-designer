@@ -1,12 +1,8 @@
-// src/config/db.js
+import mysql from 'mysql2/promise';
 
-const mysql = require('mysql2');
-
-const pool = mysql.createPool({
-    host: 'localhost',  
-    user: 'root',       
-    password: 'cimatec',       
-    database: 'th_obras_db' 
+export const pool = mysql.createPool({
+    host: 'localhost',
+    user: 'devuser2',
+    password: 'admin123',
+    database: 'cimatec_materials_db'
 });
-
-module.exports = pool.promise();
