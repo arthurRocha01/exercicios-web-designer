@@ -1,66 +1,91 @@
-import * as materialService from '../services/materialServices.js'
+// src/controllers/materialControllers.js
+import * as materialService from "../services/materialServices.js";
 
+/**
+ * Envia resposta JSON padronizada
+ */
+const sendResponse = (res, status, data, message) => {
+  const response = message ? { message, data } : data;
+  return res.status(status).json(response);
+};
+
+/**
+ * Valida os campos obrigatórios de material
+ */
+const validateFields = ({ nome, unidade_medida, quantidade, preco_unitario }) => {
+  return nome && unidade_medida && quantidade !== undefined && preco_unitario !== undefined;
+};
+
+/**
+ * Lista todos os materiais
+ */
 export const listMaterials = async (req, res) => {
-    try {
-        const materiais = await materialService.getAllMaterials();
-        return res.status(200).json(materiais);
-    } catch (error) {
-        console.error("Erro ao listar materiais:", error);
-        return res.status(500).json({ message: "Erro interno no servidor" });
-    }
+  try {
+    const materiais = await materialService.getAllMaterials();
+    return sendResponse(res, 200, materiais);
+  } catch (error) {
+    console.error("❌ Erro ao listar materiais:", error);
+    return sendResponse(res, 500, null, "Erro interno no servidor");
+  }
 };
 
+/**
+ * Cadastra um novo material
+ */
 export const registerMaterial = async (req, res) => {
-    const { nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status } = req.body;
-
-    if (!nome || !unidade_medida || quantidade === undefined || preco_unitario === undefined || !status) {
-        return res.status(400).json({ message: 'Todos os campos são obrigatórios!' });
+  try {
+    if (!validateFields(req.body)) {
+      return sendResponse(res, 400, null, "Todos os campos são obrigatórios!");
     }
 
-    try {
-        const novoMaterial = await materialService.createMaterial({ nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status });
-        return res.status(201).json(novoMaterial); // Envia o material criado
-    } catch (error) {
-        console.error("Erro ao registrar material:", error);
-        return res.status(500).json({ message: "Erro ao registrar material" });
-    }
+    const novoMaterial = await materialService.createMaterial(req.body);
+    return sendResponse(res, 201, novoMaterial, "Material criado com sucesso");
+  } catch (error) {
+    console.error("❌ Erro ao registrar material:", error);
+    return sendResponse(res, 500, null, "Erro ao registrar material");
+  }
 };
 
+/**
+ * Atualiza um material existente
+ */
 export const updateMaterial = async (req, res) => {
-    const { id } = req.params;
-    const { nome, quantidade } = req.body;
+  const { id } = req.params;
 
-    if (!nome || !quantidade) {
-        return res.status(400).json({ message: "Nome e quantidade são obrigatórios" });
+  try {
+    if (!validateFields(req.body) || !req.body.descricao) {
+      return sendResponse(res, 400, null, "Todos os campos são obrigatórios!");
     }
 
-    try {
-        const materialAtualizado = await materialService.updateMaterial(id, { nome, quantidade });
+    const materialAtualizado = await materialService.updateMaterial(id, req.body);
 
-        if (!materialAtualizado) {
-            return res.status(404).json({ message: "Material não encontrado" });
-        }
-
-        return res.status(200).json(materialAtualizado); // Retorna material atualizado
-    } catch (error) {
-        console.error("Erro ao atualizar material:", error);
-        return res.status(500).json({ message: "Erro ao atualizar material" });
+    if (!materialAtualizado) {
+      return sendResponse(res, 404, null, "Material não encontrado");
     }
+
+    return sendResponse(res, 200, materialAtualizado, "Material atualizado com sucesso");
+  } catch (error) {
+    console.error("❌ Erro ao atualizar material:", error);
+    return sendResponse(res, 500, null, "Erro ao atualizar material");
+  }
 };
 
+/**
+ * Exclui um material
+ */
 export const deleteMaterial = async (req, res) => {
-    const { id } = req.params;
+  const { id } = req.params;
 
-    try {
-        const materialDeletado = await materialService.deleteMaterial(id);
+  try {
+    const materialDeletado = await materialService.deleteMaterial(id);
 
-        if (!materialDeletado) {
-            return res.status(404).json({ message: "Material não encontrado" });
-        }
-
-        return res.status(200).json({ message: "Material excluído com sucesso" });
-    } catch (error) {
-        console.error("Erro ao excluir material:", error);
-        return res.status(500).json({ message: "Erro ao excluir material" });
+    if (!materialDeletado) {
+      return sendResponse(res, 404, null, "Material não encontrado");
     }
+
+    return sendResponse(res, 200, null, "Material excluído com sucesso");
+  } catch (error) {
+    console.error("❌ Erro ao excluir material:", error);
+    return sendResponse(res, 500, null, "Erro ao excluir material");
+  }
 };

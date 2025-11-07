@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar Material</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/main.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastrar Material</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/main.js" defer></script>
 </head>
-<body class="form-body">
-    <header class="header">
-        <h1>Cadastro de Material</h1>
-        <nav class="nav">
-            <a href="dashboard.html" class="btn secondary">Voltar</a>
-        </nav>
-    </header>
+<body class="cadastro-body">
 
-    <main class="form-wrapper">
-        <form id="materialForm" class="form card">
-            <h2 class="title">Novo Material</h2>
-            <div class="input-group">
-                <label for="nome">Nome do Material</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: Cimento CP-II" required>
-            </div>
-            <div class="input-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" name="descricao" placeholder="Descrição opcional">
-            </div>
-            <div class="form-row">
-                <div class="input-group">
-                    <label for="quantidade">Quantidade</label>
-                    <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 50" required>
-                </div>
-                <div class="input-group">
-                    <label for="preco_unitario">Preço Unitário (R$)</label>
-                    <input type="number" id="preco_unitario" name="preco_unitario" placeholder="Ex: 25.00" required>
-                </div>
-            </div>
-            <button type="submit" class="btn primary">Salvar</button>
-        </form>
-    </main>
+  <div class="form-container">
+    <h2>Cadastrar / Editar Material</h2>
+    <form id="materialForm">
+      <input type="text" name="nome" placeholder="Nome do material" required>
+      <textarea name="descricao" placeholder="Descrição" required></textarea>
+
+      <select name="unidade_medida" required>
+        <option value="">Selecione a unidade de medida</option>
+        <option value="unidade">Unidade</option>
+        <option value="saco">Saco</option>
+        <option value="metro">Metro</option>
+        <option value="litro">Litro</option>
+        <option value="caixa">Caixa</option>
+      </select>
+
+      <input type="number" name="quantidade" placeholder="Quantidade" required>
+      <input type="number" step="0.01" name="preco_unitario" placeholder="Preço unitário (R$)" required>
+
+      <button type="submit">Salvar</button>
+      <a href="dashboard.html" class="btn-secondary">Voltar</a>
+    </form>
+  </div>
+
 </body>
 </html>

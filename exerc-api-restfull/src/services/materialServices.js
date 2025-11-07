@@ -1,38 +1,69 @@
-import { pool } from '../config/db.js';
+// src/services/materialServices.js
+import pool  from "../config/db.js";
 
+/**
+ * Retorna todos os materiais cadastrados
+ */
 export const getAllMaterials = async () => {
-    const [results] = await pool.query('SELECT * FROM materiais');
-    return results;
+  const [rows] = await pool.query("SELECT * FROM materiais");
+  return rows;
 };
 
+/**
+ * Busca um material pelo ID
+ */
 export const getMaterialById = async (id) => {
-    const [rows] = await pool.query('SELECT * FROM materiais WHERE id_material = ?', [id]);
-    if (rows.length === 0) return null;
-    return rows[0];
+  const [rows] = await pool.query("SELECT * FROM materiais WHERE id = ?", [id]);
+  return rows[0] || null;
 };
 
-export const createMaterial = async ({ nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
-    const [result] = await pool.query(
-        `INSERT INTO materiais (nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        [nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status]
-    );
-    return { id_material: result.insertId, nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status };
+/**
+ * Cria um novo material
+ */
+export const createMaterial = async ({ nome, descricao, unidade_medida, quantidade, preco_unitario }) => {
+  const [result] = await pool.query(
+    `INSERT INTO materiais (nome, descricao, unidade_medida, quantidade, preco_unitario)
+     VALUES (?, ?, ?, ?, ?)`,
+    [nome, descricao, unidade_medida, quantidade, preco_unitario]
+  );
+
+  return {
+    id: result.insertId,
+    nome,
+    descricao,
+    unidade_medida,
+    quantidade,
+    preco_unitario,
+  };
 };
 
-export const updateMaterial = async (id, { nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status }) => {
-    const [result] = await pool.query(
-        `UPDATE materiais
-        SET nome = ?, descricao = ?, unidade_medida = ?, quantidade = ?, preco_unitario = ?, categoria = ?, status = ?
-        WHERE id_material = ?`,
-        [nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status, id]
-    );
-    if (result.affectedRows === 0) return null;
-    return { id_material: id, nome, descricao, unidade_medida, quantidade, preco_unitario, categoria, status };
+/**
+ * Atualiza um material existente
+ */
+export const updateMaterial = async (id, { nome, descricao, unidade_medida, quantidade, preco_unitario }) => {
+  const [result] = await pool.query(
+    `UPDATE materiais
+     SET nome = ?, descricao = ?, unidade_medida = ?, quantidade = ?, preco_unitario = ?
+     WHERE id = ?`,
+    [nome, descricao, unidade_medida, quantidade, preco_unitario, id]
+  );
+
+  if (result.affectedRows === 0) return null;
+
+  return {
+    id: id,
+    nome,
+    descricao,
+    unidade_medida,
+    quantidade,
+    preco_unitario,
+  };
 };
 
+/**
+ * Exclui um material
+ */
 export const deleteMaterial = async (id) => {
-    const [result] = await pool.query('DELETE FROM materiais WHERE id_material = ?', [id]);
-    if (result.affectedRows === 0) return null;
-    return true;
+  const [result] = await pool.query("DELETE FROM materiais WHERE id = ?", [id]);
+  return result.affectedRows > 0;
 };

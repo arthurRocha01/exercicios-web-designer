@@ -1,36 +1,33 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
+import app from './app.js';
 import { fileURLToPath } from "url";
-import * as materialController from "./controllers/materialControllers.js";
+import materialRoutes from "./routes/materialRoutes.js";
 
+// Configuração de paths
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = 5001;
 
+// Middlewares
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.resolve(__dirname, "../public")));
 
-app.get("/api/materiais", materialController.listMaterials);
-app.post("/api/materiais", materialController.registerMaterial);
-app.put("/api/materiais/:id", materialController.updateMaterial);
-app.delete("/api/materiais/:id", materialController.deleteMaterial);
+// Rotas
+app.use("/api/materiais", materialRoutes);
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../public/index.html"));
+// Páginas estáticas
+const pages = ["index", "dashboard", "cadastrar"];
+pages.forEach(page => {
+  app.get(`/${page === "index" ? "" : page}`, (req, res) =>
+    res.sendFile(path.resolve(__dirname, `../public/${page}.html`))
+  );
 });
 
-app.get("/dashboard", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../public/dashboard.html"));
-});
-
-app.get("/cadastrar", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../public/cadastrar.html"));
-});
-
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+// Inicializa o servidor
+app.listen(PORT, () =>
+  console.log(`Servidor rodando em http://localhost:${PORT}`)
+);
