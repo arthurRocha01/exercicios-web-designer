@@ -22,6 +22,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'public', 'index.html'));
 });
 
+app.get('/editar', (req, res) => {
+    res.sendFile(path.join(__dirname, 'src', 'public', 'editar.html'));
+});
+
 app.use((err, req, res, next) => {
     console.log(err.stack);
     res.status(500).json({ error: 'Erro interno do servidor' });

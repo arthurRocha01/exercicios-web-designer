@@ -6,13 +6,13 @@ export const findAllUsers = async () => {
 };
 
 export const findUserById = async (id) => {
-    const [rows] = db.query('SELECT * FROM usuarios WHERE id = ?', [id]);
+    const [rows] = await db.query('SELECT * FROM usuarios WHERE id = ?', [id]);
     return rows || null;
 };
 
 export const updateUser = async (id, data) => {
     const { nome, email} = data;
-    await db.query('UPDATE usuarios SET name = ?, email = ? WHERE id = ?', [nome, email, id]);
+    await db.query('UPDATE usuarios SET nome = ?, email = ? WHERE id = ?', [nome, email, id]);
     return findUserById(id);
 };
 
