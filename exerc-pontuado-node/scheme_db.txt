@@ -1,0 +1,11 @@
+CREATE DATABASE taskflow;
+USE taskflow;
+
+CREATE TABLE tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    status ENUM('PENDING', 'COMPLETED') NOT NULL DEFAULT 'PENDING',
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    due_date DATE,
+    completed_at DATETIME
+);

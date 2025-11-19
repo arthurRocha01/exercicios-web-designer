@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow: Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="./js/main.js" type="module" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">TaskFlow Solutions</h1>
+            <p>Gerenciador Simples</p>
+        </header>
+
+        <div class="card add-task-card">
+            <h2>➕ Nova Atividade</h2>
+            <form id="task-form" class="task-form">
+                <div class="input-row">
+                    <div class="input-group full-width">
+                        <label for="nome-tarefa">Nome da Tarefa:</label>
+                        <input type="text" id="nome-tarefa" name="nome" required placeholder="Ex: Chamar a API Node.js para listar tarefas">
+                    </div>
+                </div>
+                
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="data-prevista">Data Prevista:</label>
+                        <input type="date" id="data-prevista" name="prazo" required>
+                    </div>
+
+                    <div class="input-group button-group">
+                        <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <main class="task-list-container">
+            <div class="controls-bar">
+                <h3>Minhas Tarefas (4)</h3>
+                
+                <button id="btn-ordenar" class="btn btn-secondary btn-icon-text" aria-label="Ordenar tarefas por data">
+                    &#x1F4C5; Ordenar por Data
+                </button>
+            </div>
+            
+            <ul id="task-list" class="task-list">
+                
+            </ul>
+        </main>
+        
+        <p class="api-note">
+            *Nesta interface, o JavaScript faria a chamada **fetch()** à API Node.js para carregar e atualizar a lista de tarefas, garantindo que o progresso seja sempre sincronizado.
+        </p>
+    </div>
+</body>
+</html>
