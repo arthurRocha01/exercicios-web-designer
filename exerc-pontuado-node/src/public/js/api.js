@@ -32,7 +32,7 @@ export const addTask = async ({ title, due_date }) => {
             const errData = await res.json();
             throw new Error(errData.message || 'Falha ao adicionar tarefa.');
         }
-        
+
         return await res.json();
     } catch (err) {
         console.error(err);
@@ -47,7 +47,7 @@ export const addTask = async ({ title, due_date }) => {
  */
 export const updateTaskStatus = async (taskId, completed) => {
     try {
-        const status = completed ? 'concluida' : 'pendente';
+        const status = completed ? 'COMPLETED' : 'PENDING';
         const res = await fetch(`${API_BASE_URL}/${taskId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
